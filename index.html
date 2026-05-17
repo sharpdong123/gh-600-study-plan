@@ -855,4 +855,25 @@ function render() {
                       <span class="check-label">${t}</span>
                     </li>
                   `;
+                }).join('')}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Restore open domains
+  openDomains.forEach(id => {
+    const el = document.querySelector(`[data-domain="${id}"]`);
+    if (el) el.classList.add('open');
+  });
+}
+
+// Initial render
+render();
+</script>
+</body>
+</html>
   
