@@ -770,6 +770,12 @@ function render() {
   const container = document.getElementById('domains');
   const nav = document.getElementById('dayNav');
 
+  // Remember which domains are open
+  const openDomains = new Set();
+  document.querySelectorAll('.domain.open').forEach(el => {
+    openDomains.add(el.getAttribute('data-domain'));
+  });
+
   // Count totals
   let totalTopics = 0;
   let doneTopics = 0;
@@ -849,18 +855,4 @@ function render() {
                       <span class="check-label">${t}</span>
                     </li>
                   `;
-                }).join('')}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-// Initial render
-render();
-</script>
-</body>
-</html>
+  
